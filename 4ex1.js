@@ -1,28 +1,32 @@
 //first function that pushes to Array
 
-function range(start, end) {
-    var arr = [];
-    for (var i = start; i <= end; i++) {
+function range(start, end, step) {
+    if (step == null) step = 1;
 
-        arr.push(i);
+    var arr = [];
+
+    if (step > 0) {
+        for (var i = start; i <= end; i += step)
+            arr.push(i);
+    } else {
+        for (var i = start; i >= end; i += step)
+            arr.push(i);
     }
     return arr;
 }
 
-// second funtion to sum Array
-
-
-function sum(range) {
+function sum(arr) {
     var total = 0;
-    for (i = 0; i < range.length; i++) {
-        total += range[i]
-    }
-    return total
+    for (var i = 0; i < arr.length; i++)
+        total += arr[i];
+    return total;
 }
 
 
 
-// Your code here.
+
+
+
 
 console.log(range(1, 10));
 // → [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
